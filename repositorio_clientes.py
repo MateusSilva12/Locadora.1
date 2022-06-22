@@ -1,22 +1,35 @@
 from clientes import Cliente
-class RepositorioClientes:
-    def __init__(self,cliente:Cliente):
-        self._Cliente=[]
+class RepositorioCliente:
+    def __init__(self):
+        self._clientes=[]
     def cadastrar(self,cliente:Cliente):
-
-        for cpf in cliente:
-
-            if cpf==cpf
-                print(cada)
-
-
+        cliente=self.buscar(cliente.getCpf())
+        if cliente:
+            print('cpf ja cadastrado')
+        else:
+            self._clientes.append(cliente)
     def buscar(self,cpf:str):
-        pass
+        for cliente in self._Clientes:
+            if cliente.getCpf()==cpf:
+                return cliente
+            else:
+                return None
+
     def atualizar(self,cliente:Cliente):
-        pass
+        cliente=self.buscar(cliente.getCpf())
+        if cliente is not None:
+            cliente.setNome(cliente.getNome())
+            cliente.setEndereco(cliente.getEndereco)
+
+
     def deletar(self,cpf:str):
-        pass
-    def Getlistar(self,cliente):
-        return self._Cliente
+        if Cliente in self._clientes:
+            self._clientes.remove(Cliente)
+
+        else:
+            print('cliente nao encontrado')
+
+    def listar(self,cliente):
+        return self._Clientes
 
 
