@@ -6,7 +6,7 @@ class Filme:
         self._codigo=int()
         self._titulo=str()
         self._genero=list()
-        self._dataLancamento=date
+        self._dataLancamento=date.today
         self._director=str()
         self._atores=list()
         self._sinopse=str()
@@ -26,7 +26,7 @@ class Filme:
     def getGenero(self,genero):
         return self._genero
     def addGenero(self,genero):
-        self._genero=str()
+        self._genero.append(genero)
     def setDataLancamento(self,date):
         self._dataLancamento=date
     def getDataLancamento(self,date):
@@ -40,7 +40,7 @@ class Filme:
     def getAtores(self,atores):
         return self._atores
     def addAtor(self,ator):
-        self._ator=str()
+        self._atores.append(ator)
     def setSinopse(self,sinopse):
         self._sinopse=sinopse
     def getSinopse(self,sinopse):
@@ -49,16 +49,21 @@ class Filme:
         self._produtores=list()
     def getProdutores(self,produtores):
         return self._produtores
-    def addProdutor(self,produtor):
-        self._produtor=str()
-    def setPrecolocacao(self,precolocacao):
+    def addProductor(self,productor:str):
+        self._produtores.append(productor)
+    def setprecolocacao(self,precolocacao):
         self._precoLocacao=float()
     def getPrecolocacao(self,precolocacao):
         return self._precoLocacao
-    def setNumeroCopias(self,numerocopias):
+    def setnumeroCopias(self,numerocopias):
         self._numeroCopias=int()
-    def getNumeroCopias(self,numerocopias):
+    def getnumeroCopias(self,numerocopias):
         return self._numeroCopias
+    def imprimir(self):
+        print("codigo:{},titulo:{},genero:{},dataLancamento:{},director:{},atores:{},sinopse:{}")
+        format(self._codigo,self._titulo,self._genero,self._dataLancamento,self._director,self._atores,self._sinopse)
+
+
 
 
 

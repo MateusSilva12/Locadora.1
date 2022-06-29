@@ -15,3 +15,5 @@ class Cliente:
         self._endereco=endereco
     def getEndereco(self,endereco):
         return self._endereco
+    def imprimir(self):
+        print("nome:{},endereco:{}".format(self._nome,self._endereco))
