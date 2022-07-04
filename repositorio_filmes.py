@@ -32,8 +32,8 @@ class RepositorioFilme:
         else:
             print("filme nao foi encontrado")
     def deletar(self,codigo:int):
-        for filme self._filmes:
-            if filme.getCodigo()==codigo
+        for filme in self._filmes:
+            if filme.getCodigo()==codigo:
                 self._filmes.pop(self._filmes.index(filme))
 
      def Getlistar(self, filme):
