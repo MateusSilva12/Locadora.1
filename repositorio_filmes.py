@@ -3,7 +3,7 @@ from filme import Filme
 
 class RepositorioFilme:
     def __init__(self):
-    self._filmes = []
+        self._filmes = []
 
     def cadastrar(self, filme: Filme):
         filme = self.buscar(Filme.getCodigo())
@@ -36,5 +36,5 @@ class RepositorioFilme:
             if filme.getCodigo()==codigo:
                 self._filmes.pop(self._filmes.index(filme))
 
-     def Getlistar(self, filme):
+    def Getlistar(self, filme):
         return self._filme

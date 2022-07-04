@@ -24,7 +24,7 @@ class RepositorioCliente:
 
     def deletar(self,cpf:str):
         if Cliente in self._clientes:
-            self._clientes.remove(Cliente)
+            self._clientes.pop(self._clientes.index(Cliente))
 
         else:
             print('cliente nao encontrado')
