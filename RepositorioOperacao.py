@@ -18,7 +18,7 @@ class RepositorioOperacao:
                 return Locacao
 
     def buscarReserva(self, cpf: str):
-        Reserva = list()
+        reserva = list()
         for reserva in self._operacoes:
             if isinstance(reserva, Reserva):
                 if Operacao.getCpf() == cpf:
@@ -28,14 +28,14 @@ class RepositorioOperacao:
         return reserva
 
     def buscarLocacoes(self, cpf: str):
-        Locacao = list()
-        for Locacao in self._operacoes:
+        locacao = list()
+        for locacao in self._operacoes:
             if isinstance(locacao, Locacao):
                 if Operacao.getCpf() == cpf:
                     if Operacao.isativo() is True:
                         if isinstance(Operacao, Locacao):
-                            Locacao.append(Operacao)
-        return Locacao
+                            locacao.append(Operacao)
+        return locacao
 
     def deletarReserva(self, cpf: str, codigo: int):
         for reserva in self._operacoes:
@@ -47,16 +47,37 @@ class RepositorioOperacao:
     def deletarLocacao(self, cpf: str, codigo: int):
         for locacao in self._operacoes:
             if isinstance(locacao,Locacao):
+                if locacao.getCpf()==cpf:
+                    if locacao.getCodigo()==codigo:
+                        locacao.set_Ativo(False)
 
 
     def listarLocacao(self, cpf: str):
-        pass
+        locacoes=list()
+        for locacao in self._operacoes:
+            if isinstance(locacao,Locacao):
+                if locacao.getCpf()==cpf:
+                    locacoes.append(locacao)
+        return locacoes
 
-    def numeroLocacao(self, cpf: str):
-        pass
+    def numeroLocacoes(self, cpf: str):
+        cont=0
+        for operacao in self._operacoes:
+            if operacao.getCpf()==cpf:
+                cont +=1
+        return cont
 
     def numeroLocacao(self, codigo: int):
-        pass
+        cont=0
+        for operacao in self._operacoes:
+            if operacao.getCodigo()==codigo:
+                cont+=1
+        return cont
+
+
+
+
+
 
     def numerolocacaoAivas(self, cpf: str):
         pass
