@@ -1,5 +1,3 @@
-import locacao
-import reserva
 from locacao import Locacao
 from operacao import Operacao
 from reserva import Reserva
@@ -18,24 +16,22 @@ class RepositorioOperacao:
                 return Locacao
 
     def buscarReserva(self, cpf: str):
-        reserva = list()
+        reservas = list()
         for reserva in self._operacoes:
             if isinstance(reserva, Reserva):
-                if Operacao.getCpf() == cpf:
-                    if Operacao.isativo() is True:
-                        if isinstance(reserva,Operacao):
-                            reserva.append(Operacao)
-        return reserva
+                if reserva.getCpf() == cpf:
+                    if reserva.isativo() is True:
+                            reservas.append(reserva)
+        return reservas
 
     def buscarLocacoes(self, cpf: str):
-        locacao = list()
+        locacoes = list()
         for locacao in self._operacoes:
             if isinstance(locacao, Locacao):
-                if Operacao.getCpf() == cpf:
-                    if Operacao.isativo() is True:
-                        if isinstance(Operacao, Locacao):
-                            locacao.append(Operacao)
-        return locacao
+                if locacao.getCpf() == cpf:
+                    if locacao.setAtivo() is True:
+                            locacoes.append(locacao)
+        return locacoes
 
     def deletarReserva(self, cpf: str, codigo: int):
         for reserva in self._operacoes:
