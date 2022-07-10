@@ -10,10 +10,10 @@ class RepositorioOperacao:
         self._operacoes = []
 
     def cadastrar(self, operacao: Operacao):
-        if self.buscarReserva(Operacao):
+        if self.buscarReserva(operacao):
             if Operacao.isativo(True):
                 return Reserva
-        if self.buscarLocacoes(Operacao):
+        if self.buscarLocacoes(operacao):
             if Operacao.isativo(True):
                 return Locacao
 
@@ -73,17 +73,25 @@ class RepositorioOperacao:
             if operacao.getCodigo()==codigo:
                 cont+=1
         return cont
-
-
-
-
-
-
     def numerolocacaoAivas(self, cpf: str):
-        pass
-
+        cont=0
+        for operacao in self._operacoes:
+            if operacao.getCpf()==cpf:
+                if operacao.setAtivo()==True:
+                    cont+=1
+        return cont
     def numeroLocacaoAtivas(self, codigo: int):
-        pass
+        cont=0
+        for operacao in self._operacoes:
+            if operacao.getCodigo()==codigo:
+                if operacao.setAtivo()==True:
+                    cont+=1
+        return cont
 
     def numeroReserva(self, codigo: int):
-        pass
+        cont=0
+        for reserva in self._operacoes:
+            if reserva.getCodigo()==codigo:
+                if reserva.setAtivo()==True:
+                    cont+1
+        return cont

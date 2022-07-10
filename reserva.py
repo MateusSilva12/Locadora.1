@@ -3,7 +3,7 @@ from operacao import Operacao
 
 class Reserva(Operacao):
     def __init__(self,cpf,codigo,prioridade):
-        super().__init__(cpf,codigo)
+        super().__init__(self._cpf,self._codigo)
         self._prioridade = int()
 
     def setPrioridade(self, prioridade):
